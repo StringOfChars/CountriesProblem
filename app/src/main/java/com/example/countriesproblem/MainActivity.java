@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 public class MainActivity extends AppCompatActivity {
@@ -15,35 +16,35 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         String countries = "Afghanistan Albania Algeria American Samoa Andorra Angola " +
-                "Antigua and Barbuda Atlantis Argentina Armenia Aruba Australia Austria Bosnia";
-        String[] allCountries = new String[17];
-        StringTokenizer strObject = new StringTokenizer(countries, " ");
-
+                "OAE Antigua and Barbuda Atlantis Argentina Armenia Aruba Australia Austria Bosnia European Union";
+        String[] allCountries = new String[16];
         String potentialCountry = "";
         int idx = 0;
 
         for (int i = 0; i < countries.length(); i++) {
             char x = countries.charAt(i);
             potentialCountry += x;
-
             if (x == countries.charAt(countries.length() - 1)) {
                 allCountries[idx] = potentialCountry;
             }
-
             if (x == ' ') {
-                StringBuffer sb = new StringBuffer(potentialCountry);
-                allCountries[idx] = sb.substring(0, potentialCountry.length() - 1);
-                if (allCountries[idx] == "and") {
-                    allCountries[idx] = "Test";
-                    potentialCountry = "";
+                allCountries[idx] = potentialCountry.substring(0, potentialCountry.length() - 1);
+                if (Objects.equals(countries.charAt(i + 1), 'a') && (Objects.equals(countries.charAt(i + 2), 'n') &&
+                        (Objects.equals(countries.charAt(i + 3), 'd') && (Objects.equals(countries.charAt(i + 4), ' '))))
+                        || (Objects.equals(countries.charAt(i - 1), 'd') && (Objects.equals(countries.charAt(i - 2), 'n') &&
+                        (Objects.equals(countries.charAt(i - 3), 'a') && (Objects.equals(countries.charAt(i - 4), ' ')))))) {
+                } else if ((allCountries[idx].matches("American")) || ((allCountries[idx].matches("European")))) {
                 } else {
                     potentialCountry = "";
                     idx++;
                 }
             }
         }
-
-        System.out.println(Arrays.toString(allCountries) + ".");
+        String allCountryNames = "";
+        for (String countryName : allCountries) {
+            allCountryNames += "\"" + countryName + "\", ";
+        }
+        System.out.println(allCountryNames.substring(0, allCountryNames.length() - 2) + ".");
     }
 }
 
