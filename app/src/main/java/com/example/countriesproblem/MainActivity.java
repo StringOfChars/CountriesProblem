@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         }
         System.out.println(allCountryNames.substring(0, allCountryNames.length() - 2) + ".");
     }
+
 }
 
 
