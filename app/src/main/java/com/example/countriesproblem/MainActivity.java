@@ -24,10 +24,10 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < countries.length(); i++) {
             char x = countries.charAt(i);
 
-            if ((i <= countries.length() - 3 && (Objects.equals(countries.charAt(i + 1), 'a') && Objects.equals(countries.charAt(i + 2), 'n') &&
-                    Objects.equals(countries.charAt(i + 3), 'd') && Objects.equals(countries.charAt(i + 4), ' ')))
-                    || (i > 3 && (Objects.equals(countries.charAt(i - 1), 'd') && Objects.equals(countries.charAt(i - 2), 'n') &&
-                    Objects.equals(countries.charAt(i - 3), 'a') && Objects.equals(countries.charAt(i - 4), ' ')))
+            if ((i <= countries.length() - 3 && countries.charAt(i + 1)=='a' && countries.charAt(i + 2)=='n' &&
+                   countries.charAt(i + 3)=='d' && countries.charAt(i + 4)==' ')
+                    || (i > 3 && countries.charAt(i - 1)=='d' && countries.charAt(i - 2)=='n' &&
+                    countries.charAt(i - 3)=='a' && countries.charAt(i - 4)==' ')
                     || potentialCountry.matches("American") || potentialCountry.matches("European")) {
                 potentialCountry += x;
                 continue;
