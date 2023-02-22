@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
                 allCountries[idx] = potentialCountry;
             }
         }
-
         String allCountryNames = "";
         for (String countryName : allCountries) {
             allCountryNames += "\"" + countryName + "\", ";
