@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
                 idx++;
                 continue;
             }
-
             potentialCountry += x;
 
             if (x == countries.charAt(countries.length() - 1)) {
